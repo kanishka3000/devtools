@@ -1,9 +1,12 @@
 import React from 'react';
-import {TextField, Grid } from '@material-ui/core';
+import {Grid } from '@material-ui/core';
+import {reduxForm, Field} from 'redux-form';
+import TextFieldWrapper from './TextFieldWrapper';
 
 class DiffCompareRequest extends React.Component{
     
     render(){
+        
         return (
         <div>
             <Grid container direction = "column">
@@ -11,14 +14,14 @@ class DiffCompareRequest extends React.Component{
                     {this.props.title}
                 </Grid>
                 <Grid item>
-                    <TextField variant="outlined" multiline rows = {10}/>       
+                    <Field name = {this.props.holder} component = {TextFieldWrapper} defaultValue = {this.props.holder} variant="outlined" rows = {10}/>
+                    
                 </Grid>
-            </Grid>
-             
+            </Grid>            
              
         </div>
         )
     }
 }
 
-export default DiffCompareRequest;
+export default reduxForm({form: 'diffCompareRequest'})(DiffCompareRequest);
