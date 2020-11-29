@@ -6,10 +6,10 @@ List compare, as the name suggests can be used to compare two lists.
 
 ### How to build and run
 
-You need to have npm and docker installed in your system
+You need to have docker installed in your system
 
 ```
-npm run build
+docker run -w /app -v $(pwd):/app node:10 npm run build
 docker build -t compare:latest .
 docker run -it --name mycomp -p 8080:80 compare
 ```
